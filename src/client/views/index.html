@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <!-- <link href="main.css" rel="stylesheet"> -->
+
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+          <a href="#about" class="navbar__logo">
+            <img src="./imges/location-logo.png" alt="brand logo" class="logo__image">
+          </a>
+        </nav>
+      </header>
+    <main>
+        <section id="planner" class="section section__planner">
+            <div class="container planner__form">
+                <div class="form__image section__image">
+                    <img src="./imges/location-pixabay.jpg" alt="planet Earth icon">
+                </div>
+              <form class="form__content" id="form">
+                <h2 class="form__heading">Plan your trip</h2>
+                <input type="text" class="form__input input__from" name="from" id="cityDepart" placeholder="Leaving from"
+                  autocomplete="off" required>
+                <input type="text" class="form__input input__to" name="to" id="cityArriving" placeholder="Going to" autocomplete="off"
+                  required>
+                <label class="date__deplabel" for="depdate">departing on...</label>
+                <input type="date" class="form__input input__depdate" name="departDate" id="departDate" required>
+                <label class="date__retlabel" for="repdate">returning on...</label>
+                <input type="date" class="form__input input__retdate" name="returnDate" id="retunDate" required>
+                <input type="submit" class="input__submit" name="submit" value="Submit">
+              </form>
+            </div>
+        </section>
+          <section id="result" class="section section__result">
+            <div class="container results">
+              <div class="result__image">
+                <img src="../views/img/planet-earth.png" alt="destination image" id="fromPixabay">
+              </div>
+              <div class="result__content">
+      
+                <i class="city__icon icon__result fas fa-map-pin"></i>
+                <h2 class="city__name text__result">You are going to: <span id="heading"></span></h2>
+                <i class="date__icon icon__result fas fa-calendar-day"></i>
+                <h2 class="date__name text__result">Departing on: <span id="tavelDay">DD/MM/YYYY</span></h2>
+      
+                <i class="days__icon icon__result fas fa-suitcase-rolling"></i>
+                <h2 class="days__name text__result">This is <span id="manyOfDays"> NUM </span> days away</h2>
+      
+                <i class="weather__icon icon__result fas fa-cloud-sun-rain"></i>
+                <h2 class="weather__name text__result">Expect weather to be: <span id="weather-expected">200C</span> &#176; F, <span
+                    id="summary"></span>.</h2>
+      
+                <a class="button button__save" id="save" href="#">Print</a>
+                <a class="button button__delete" id="delete" href="#">Delete</a>
+      
+              </div>
+            </div>
+          </section>
+    </main>
+
+    <footer>
+        <p style="text-align: center;">Copywrite 2020.08.11</p>
+    </footer>
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(error) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', error);
+                });
+            });
+        };
+    </script>
+
+</body>
+
+</html>
